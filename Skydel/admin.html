@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Skydel | Сулжба доставки</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/admin.css">
+    </head>
+    <body>
+        <header>
+            <div class="content">
+                <div href="index.html" class="logo"></div>
+                <div class="profile">
+                    <a href="profile.html">
+                        <span class="name">Райан Гослинг</span>
+                        <img src="img/i.webp" alt>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <nav class="header-nav">
+            <a
+                href="\index.html">Главная</a>
+            <a href="#">Способ оплаты</a>
+            <a href="#">Помощь</a>
+        </nav>
+
+        <div class="admin-panel">
+            <div class="card delivery-manage">
+                <div class="title">Управление доставками</div>
+                <div class="table-container">
+                    <div class="manage-panel">
+                        <button>Добавить</button>
+                        <button>Изменить</button>
+                        <button>Удалить</button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Дата отправления</th>
+                                    <th>Заказчик</th>
+                                    <th>Размер</th>
+                                    <th>Стоимость</th>
+                                    <th>Статус</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>13.09.25</th>
+                                    <th>Иванов Иван</th>
+                                    <th>15х20х20</th>
+                                    <th>1500</th>
+                                    <th>Получен</th>
+                                </tr>
+                                <tr>
+                                    <th>11.11.25</th>
+                                    <th>Райан Рейнольдс</th>
+                                    <th>10х60х10</th>
+                                    <th>2000</th>
+                                    <th>В городе получателя</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card statistics">
+                <div class="title">Статистика</div>
+                <div class="chart-container">
+                    <canvas id="myChart" width="750" height="200"></canvas>
+                </div>
+
+                <script>
+                // Получаем элемент canvas
+                const canvas = document.getElementById('myChart');
+                const ctx = canvas.getContext('2d');
+
+                // Пример данных для графика
+                const data = [25, 45, 30, 60, 75, 50, 80, 65, 90, 70, 85, 40];
+                const labels = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
+
+                // Настройки графика
+                const config = {
+                    padding: 20,
+                    gridColor: '#e0e0e0',
+                    lineColor: '#80b9e7',
+                    pointColor: '#2196F3',
+                    textColor: '#fff',
+                    axisColor: '#333'
+                };
+
+                // Функция для рисования графика
+                function drawChart() {
+                    // Очищаем canvas
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                    // Рассчитываем масштаб и позиции
+                    const chartWidth = canvas.width - 2 * config.padding;
+                    const chartHeight = canvas.height - 2 * config.padding;
+                    const maxValue = Math.max(...data);
+                    const minValue = Math.min(...data);
+                    const valueRange = maxValue - minValue;
+
+                    // Рисуем сетку
+                    drawGrid();
+
+                    // Рисуем оси
+                    drawAxes();
+
+                    // Рисуем линию графика
+                    drawLine();
+
+                    // Рисуем точки данных
+                    drawPoints();
+
+                    // Рисуем подписи
+                    drawLabels();
+
+                    function drawGrid() {
+                        ctx.strokeStyle = config.gridColor;
+                        ctx.lineWidth = 1;
+                        
+                        // Вертикальные линии
+                        const xStep = chartWidth / (data.length - 1);
+                        for (let i = 0; i < data.length; i++) {
+                            const x = config.padding + i * xStep;
+                            ctx.beginPath();
+                            ctx.moveTo(x, config.padding);
+                            ctx.lineTo(x, canvas.height - config.padding);
+                            ctx.stroke();
+                        }
+
+                        // Горизонтальные линии
+                        const horizontalLines = 5;
+                        for (let i = 0; i <= horizontalLines; i++) {
+                            const y = config.padding + (chartHeight / horizontalLines) * i;
+                            ctx.beginPath();
+                            ctx.moveTo(config.padding, y);
+                            ctx.lineTo(canvas.width - config.padding, y);
+                            ctx.stroke();
+                        }
+                    }
+
+                    function drawAxes() {
+                        ctx.strokeStyle = config.axisColor;
+                        ctx.lineWidth = 2;
+
+                        // Ось X
+                        ctx.beginPath();
+                        ctx.moveTo(config.padding, canvas.height - config.padding);
+                        ctx.lineTo(canvas.width - config.padding, canvas.height - config.padding);
+                        ctx.stroke();
+
+                        // Ось Y
+                        ctx.beginPath();
+                        ctx.moveTo(config.padding, config.padding);
+                        ctx.lineTo(config.padding, canvas.height - config.padding);
+                        ctx.stroke();
+                    }
+
+                    function drawLine() {
+                        ctx.strokeStyle = config.lineColor;
+                        ctx.lineWidth = 3;
+                        ctx.beginPath();
+
+                        const xStep = chartWidth / (data.length - 1);
+                        
+                        for (let i = 0; i < data.length; i++) {
+                            const x = config.padding + i * xStep;
+                            const y = canvas.height - config.padding - 
+                                    ((data[i] - minValue) / valueRange) * chartHeight;
+
+                            if (i === 0) {
+                                ctx.moveTo(x, y);
+                            } else {
+                                ctx.lineTo(x, y);
+                            }
+                        }
+
+                        ctx.stroke();
+                    }
+
+                    function drawPoints() {
+                        const xStep = chartWidth / (data.length - 1);
+                        
+                        for (let i = 0; i < data.length; i++) {
+                            const x = config.padding + i * xStep;
+                            const y = canvas.height - config.padding - 
+                                    ((data[i] - minValue) / valueRange) * chartHeight;
+
+                            ctx.fillStyle = config.pointColor;
+                            ctx.beginPath();
+                            ctx.arc(x, y, 4, 0, 2 * Math.PI);
+                            ctx.fill();
+
+                            // Белая обводка для точек
+                            ctx.strokeStyle = 'white';
+                            ctx.lineWidth = 2;
+                            ctx.stroke();
+                        }
+                    }
+
+                    function drawLabels() {
+                        ctx.fillStyle = config.textColor;
+                        ctx.font = '12px Arial';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'top';
+
+                        // Подписи по оси X
+                        const xStep = chartWidth / (data.length - 1);
+                        for (let i = 0; i < data.length; i++) {
+                            const x = config.padding + i * xStep;
+                            const y = canvas.height - config.padding + 5;
+                            ctx.fillText(labels[i], x, y);
+                        }
+
+                        // Подписи по оси Y
+                        ctx.textAlign = 'right';
+                        ctx.textBaseline = 'middle';
+                        const horizontalLines = 5;
+                        for (let i = 0; i <= horizontalLines; i++) {
+                            const value = minValue + (valueRange / horizontalLines) * i;
+                            const y = canvas.height - config.padding - (chartHeight / horizontalLines) * i;
+                            const x = config.padding - 5;
+                            ctx.fillText(Math.round(value).toString(), x, y);
+                        }
+                    }
+                }
+
+                // Запускаем отрисовку графика
+                drawChart();
+
+                // Добавляем обработчик для перерисовки при изменении размера окна
+                window.addEventListener('resize', drawChart);
+            </script>
+            </div>
+        </div>
+
+        <footer>
+            <div class="info">
+                <div class="delivery">
+                    <div class="title">Доставка</div>
+                    <a href="#">Вопросы по доставке</a>
+                    <a href="#">Крупногабаритный товары</a>
+                    <a href="#">Доставка в другую страну</a>
+                    <a href="#">Доставка не пришла</a>
+                    <a href="#">Потеряли ваш заказ</a>
+                    <a href="#">Мобильное приложение</a>
+                    <a href="#">Промокоды</a>
+                    <a href="#">Каталог</a>
+                </div>
+                <div class="terms">
+                    <div class="title">Условия</div>
+                    <a href="#">Документы</a>
+                    <a href="#">Требования к отправке</a>
+                    <a href="#">Упаковка писем и посылок</a>
+                </div>
+            </div>
+            <span class="copyright">© Skydel 2025</span>
+
+            <div class="socials">
+                <a href="#" class="tg"><div></div></a>
+                <a href="#" class="vk"><div></div></a>
+                <a href="#" class="email"><div></div></a>
+            </div>
+        </footer>
+    </body>
+</html>

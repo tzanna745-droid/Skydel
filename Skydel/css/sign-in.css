@@ -1,0 +1,51 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #DCCDFF;
+    font-family: 'Open Sans';
+    overflow-x: hidden;
+}
+
+input, label {
+    font-family: 'Open Sans';
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input {
+    background: none;
+    border: #fff 2px solid;
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+input[type="submit"] {
+    margin-bottom: 0px;
+    height: 36px;
+    border: none;
+    background: linear-gradient(#EE6938, #AA4926);
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.sign-in, .sign-up {
+    width: 500px;
+    background: linear-gradient(0deg, #988AD8, #6955AE);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    padding: 40px;
+    color: #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}

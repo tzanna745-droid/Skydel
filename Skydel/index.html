@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Skydel | Сулжба доставки</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <header>
+            <div class="content">
+                <div href="index.html" class="logo"></div>
+                <div class="profile">
+                    <a
+                        href="\sign-in.html"
+                        class="sign-in">Войти</a>
+                    <a
+                        href="\sign-up.html"
+                        class="sign-up">Зарегестрироваться</a>
+                </div>
+            </div>
+        </header>
+
+        <nav class="header-nav">
+            <a href="#">Главная</a>
+            <a href="#">Способ оплаты</a>
+            <a href="#">Помощь</a>
+        </nav>
+
+        <nav class="main-nav">
+            <button><span>Оформить доставку</span></button>
+            <button><span>Отследить</span></button>
+            <button><span>Доставка из-за рубежа</span></button>
+        </nav>
+
+        <section class="delivery-block">
+            <nav>
+                <div class="elements">
+                    <div class="nav-element calculator">
+                        <button>Калькулятор</button>
+                    </div>
+                    <div class="nav-element follow">
+                        <span>Отследить посылку</span>
+                        <form class="search">
+                            <input type="text" placeholder="Номер отправления">
+                            <input type="submit" value>
+                        </form>
+                    </div>
+                    <div class="nav-element maps">
+                        <button>Наши точки</button>
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                <div class="calculator active">
+                    <div class="left">
+                        <form action>
+                            <div class="cities">
+                                <div class="out">
+                                    <label for>Город отправителя</label>
+                                    <select name id>
+                                        <option value="Казань">Казань</option>
+                                        <option value="Самара">Самара</option>
+                                        <option value="Саратов">Саратов</option>
+                                        <option
+                                            value="Ульяновск">Ульяновск</option>
+                                        <option value="Уфа">Уфа</option>
+                                    </select>
+                                </div>
+                                <div class="in">
+                                    <label for>Город получателя</label>
+                                    <select name id>
+                                        <option value="Казань">Казань</option>
+                                        <option value="Самара">Самара</option>
+                                        <option value="Саратов">Саратов</option>
+                                        <option
+                                            value="Ульяновск">Ульяновск</option>
+                                        <option value="Уфа">Уфа</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="value">
+                                <label for>Ценность посылки (р.)</label>
+                                <input type="number" placeholder="Ценность">
+                            </div>
+                            <div class="size">
+                                <label for>Размер посылки (см)</label>
+                                <div class="size-inputs">
+                                    <input type="number" name id
+                                        placeholder="Высота">
+                                    <input type="number" name id
+                                        placeholder="Ширина">
+                                    <input type="number" name id
+                                        placeholder="Глубина">
+                                </div>
+                            </div>
+                        </form>
+                        <button>Расчитать</button>
+                    </div>
+                    <div class="right">
+                        <span class="title">Стоимость доставки:</span>
+                        <div class="price">
+                            <span id="calculator-delivery-price">0</span>
+                            <span> р.</span>
+                        </div>
+                        <span class="title">Срок доставки: </span>
+                        <div class="time">
+                            <span id="calculator-delivery-time">0</span>
+                            <span> дней</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="follow"></div>
+                <div class="maps"></div>
+            </div>
+        </section>
+
+        <section class="promote">
+            <a href="#"><img src="img/promote-1.png" alt></a>
+            <a href="#"><img src="img/promote-2.png" alt></a>
+            <a href="#"><img src="img/promote-3.png" alt></a>
+        </section>
+
+        <section class="vacansies">
+            <a href="#" class="vacansy">
+                <img src="img/Deliverer.png" alt>
+                <span class="title">Курьер</span>
+            </a>
+            <a href="#" class="vacansy">
+                <img src="img/gruzchik.png" alt>
+                <span class="title">Грузчик</span>
+            </a>
+            <a href="#" class="vacansy">
+                <img src="img/driver.png" alt>
+                <span class="title">Водитель</span>
+            </a>
+            <a href="#" class="vacansy">
+                <img src="img/call-center.png" alt>
+                <span class="title">Оператор чатов</span>
+            </a>
+        </section>
+
+        <footer>
+            <div class="info">
+                <div class="delivery">
+                    <div class="title">Доставка</div>
+                    <a href="#">Вопросы по доставке</a>
+                    <a href="#">Крупногабаритный товары</a>
+                    <a href="#">Доставка в другую страну</a>
+                    <a href="#">Доставка не пришла</a>
+                    <a href="#">Потеряли ваш заказ</a>
+                    <a href="#">Мобильное приложение</a>
+                    <a href="#">Промокоды</a>
+                    <a href="#">Каталог</a>
+                </div>
+                <div class="terms">
+                    <div class="title">Условия</div>
+                    <a href="#">Документы</a>
+                    <a href="#">Требования к отправке</a>
+                    <a href="#">Упаковка писем и посылок</a>
+                </div>
+            </div>
+            <span class="copyright">© Skydel 2025</span>
+
+            <div class="socials">
+                <a href="#" class="tg"><div></div></a>
+                <a href="#" class="vk"><div></div></a>
+                <a href="#" class="email"><div></div></a>
+            </div>
+        </footer>
+    </body>
+</html>

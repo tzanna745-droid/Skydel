@@ -1,0 +1,78 @@
+header .profile {
+    border: none!important;
+}
+
+header .profile a {
+    color: #fff;
+    text-decoration: none;
+    border: none!important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header .profile img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+
+
+.admin-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin: 100px 0;
+}
+
+.admin-panel .card {
+    width: 1000px;
+    background: linear-gradient(#8d7bdd, #745fbe);
+    border-radius: 20px;
+    padding: 20px;
+    gap: 10px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.admin-panel .delivery-manage .manage-panel {
+    margin-bottom: 10px;
+}
+
+.admin-panel .delivery-manage .manage-panel button {
+    border: none;
+    border-radius: 5px;
+    padding: 4px 15px;
+    background: linear-gradient(#EE6938, #AA4926);
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.table-container {
+    background: none;
+    padding: 20px;
+    border-radius: 8px;
+}
+.table-wrapper {
+    min-height: 200px;
+    overflow: auto;
+    border: 1px solid #ddd;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+th {
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+}

@@ -1,0 +1,434 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #F0E9FF;
+    font-family: 'Open Sans';
+    overflow-x: hidden;
+}
+
+a, input, button {
+    font-family: 'Open Sans';
+}
+
+header {
+    width: 100vw;
+    height: 100px;
+    background: linear-gradient(0deg, #988AD8, #6955AE);
+    position: relative;
+}
+
+header::before {
+    position: absolute;
+    content: "";
+    background-image: url("../src/header-stars-left.png");
+    width: 54px;
+    height: 58px;
+    left: 30px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+header::after {
+    position: absolute;
+    content: "";
+    background-image: url("../src/header-stars-right.png");
+    width: 102px;
+    height: 65px;
+    right: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+header .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 150px;
+}
+
+header .logo {
+    background-image: url("../src/logo.svg");
+    width: 70px;
+    height: 52px;
+}
+
+header .profile {
+    border: #fff 2px solid;
+    padding: 10px 15px;
+    border-radius: 47px;
+}
+
+header .profile a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0;
+    padding: 2px 15px;
+}
+
+header .profile a:nth-child(1) {
+    border-right: #fff 2px solid;
+    padding-right: 17px;
+}
+
+
+
+nav.header-nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav.header-nav a {
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(#6E60AD, #504283);
+    width: 225px;
+    max-height: 50px;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 14px;
+    transition: .2s;
+}
+
+nav.header-nav a:nth-child(1) {
+    border-bottom-left-radius: 20px;
+}
+
+nav.header-nav a:nth-child(2) {
+    border-left: #F0E9FF 1px solid;
+    border-right: #F0E9FF 1px solid;
+}
+
+nav.header-nav a:nth-child(3) {
+    border-bottom-right-radius: 20px;
+}
+
+
+
+nav.main-nav {
+    width: 800px;
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav.main-nav button {
+    background: none;
+    border: none;
+    width: 180px;
+    height: 110px;
+    background-image: url("../src/menu-button-1.svg");
+    background-repeat: no-repeat;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+}
+
+nav.main-nav button:nth-child(2) {
+    background-image: url("../src/menu-button-2.svg");
+}
+
+nav.main-nav button span {
+    max-width: 30px;
+    font-weight: 600;
+}
+
+
+.delivery-block nav {
+    background: linear-gradient(0deg, #988AD8, #6955AE);
+    width: 100vw;
+    height: 340px;
+}
+
+.delivery-block nav .elements {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.delivery-block nav .nav-element {
+    width: 255px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.delivery-block nav .elements button {
+    background: none;
+    border: #fff 2px solid;
+    border-radius: 10px;
+    width: 255px;
+    height: 46px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.delivery-block nav .elements .follow {
+    gap: 10px;
+}
+
+.delivery-block nav .elements .follow .search {
+    display: flex;
+    justify-content: center;
+    height: 36px;
+}
+
+.delivery-block nav .elements .follow .search input {
+    background: none;
+    border: #fff solid 2px;
+    border-radius: 10px;
+    width: 219px;
+}
+
+.delivery-block nav .elements .follow .search input[type="text"] {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-right: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 0 10px;
+}
+
+.delivery-block nav .elements .follow .search input[type="text"]::placeholder {
+    color: #ffffff96;
+}
+
+.delivery-block nav .elements .follow .search input[type="submit"] {
+    background-image: url("../src/search-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    width: 36px;
+    height: 36px;
+}
+
+.delivery-block .content .active {
+    display: flex!important;
+}
+
+.delivery-block .content .calculator {
+    display: none;
+    justify-content: center;
+    gap: 50px;
+    margin: 100px 0;
+}
+
+.delivery-block .content .calculator .right {
+    background: linear-gradient(0deg, #988AD8, #6955AE);
+    color: #fff;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.delivery-block .content .calculator .right .title {
+    font-weight: 600;
+}
+
+.delivery-block .content .calculator .left button {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 25px;
+    border: none;
+    background: linear-gradient(#EE6938, #AA4926);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.delivery-block .content .calculator .left form {
+    background: linear-gradient(0deg, #988AD8, #6955AE);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.delivery-block .content .calculator .left form label {
+    font-weight: 600;
+    color: #fff;
+}
+
+.delivery-block .content .calculator .left form input, 
+.delivery-block .content .calculator .left form select {
+    height: 36px;
+    padding: 0 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.delivery-block .content .calculator .left form .cities {
+    display: flex;
+    justify-content: start;
+    gap: 40px;
+}
+
+.delivery-block .content .calculator .left form .cities div {
+    display: flex;
+    flex-direction: column;
+}
+
+.delivery-block .content .calculator .left form .cities select {
+    height: 30px;
+    width: 230px;
+}
+
+.delivery-block .content .calculator .left form .value {
+    display: flex;
+    flex-direction: column;
+}
+
+.delivery-block .content .calculator .left form .size-inputs {
+    display: flex;
+}
+
+.delivery-block .content .calculator .left form .size-inputs input:nth-child(1) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.delivery-block .content .calculator .left form .size-inputs input:nth-child(2) {
+    border-radius: 0;
+    border-left: #988AD8 1px solid;
+    border-right: #988AD8 1px solid;
+}
+
+.delivery-block .content .calculator .left form .size-inputs input:nth-child(3) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+
+
+
+.promote {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin: 100px auto;
+}
+
+.promote img {
+    user-select: none;
+    border-radius: 15px;
+}
+
+
+
+.vacansies {
+    background: linear-gradient(0deg, #7A6FA8, #6955AE);
+    width: 100vw;
+    height: 350px;
+    margin: 100 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.vacansies a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.vacansies a .title {
+    font-weight: 600;
+}
+
+.vacansies a img {
+    border-radius: 10px;
+}
+
+
+
+footer {
+    max-width: 100vw;
+    max-height: 300px;
+    min-height: 300px;
+    position: relative;
+    margin: 100px 0 0 0;
+
+    background: linear-gradient(0deg, #7A6FA8, #6955AE);
+    color: #fff;
+
+    padding: 50px 100px;
+}
+
+footer .info {
+    display: flex;
+    gap: 50px;
+}
+
+footer .info div {
+    display: flex;
+    flex-direction: column;
+}
+
+footer .info div .title {
+    font-weight: 600;
+}
+
+footer .info a {
+    color: #ffffff9f;
+}
+
+footer .info a:hover {
+    color: #ffffffe0;
+}
+
+footer .copyright {
+    position: absolute;
+    bottom: 5px;
+    font-size: 16px;
+}
+
+footer .socials {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    display: flex;
+    gap: 20px;
+}
+
+footer .socials a div {
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+footer .socials .tg div {
+    background-image: url("../src/tg.svg");
+}
+
+footer .socials .vk div {
+    background-image: url("../src/vk.svg");
+}
+
+footer .socials .email div {
+    background-image: url("../src/email.svg");
+}
